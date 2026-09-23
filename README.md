@@ -1,0 +1,3 @@
+# NextJS 16 starter package
+
+To be filled...

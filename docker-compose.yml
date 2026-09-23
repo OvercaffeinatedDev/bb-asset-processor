@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:24
+    container_name: ap-db
+    environment:
+      - POSTGRES_USER=ap
+      # Committed dev-only password — matches DATABASE_PASSWORD in your local
+      # .env by default. Left as-is here so `docker compose up` keeps working
+      # out of the box, but rotate both together if this ever needs to change.
+      - POSTGRES_PASSWORD=apdocs
+      - POSTGRES_DB=docs
+      - TZ=${TZ:-UTC}
+    ports:
+      # Bound to localhost only — this container shouldn't be reachable from
+      # the LAN/internet just because Docker's default bridge would otherwise
+      # publish it on every interface.
+      - 127.0.0.1:9100:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U"]
+      start_period: 30s
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local

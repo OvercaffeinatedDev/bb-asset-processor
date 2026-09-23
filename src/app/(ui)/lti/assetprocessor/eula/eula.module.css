@@ -1,0 +1,315 @@
+/*
+ * Ported from the "Student EULA" wireframe (Screen 3 of 5)
+ * https://claude.ai/design/p/48f10ec3-edf6-4629-bd10-70a43b1b3a4b
+ * — Asset Processor · Blackboard LTI · Wireframes
+ */
+
+.panel {
+  --bg: #0d0d14;
+  --art: #15151f;
+  --sur: #1d1d28;
+  --sur2: #232332;
+  --bd: #2a2a3d;
+  --bd2: #38384e;
+  --t1: #e2e2f0;
+  --t2: #9a9ab8;
+  --t3: #5a5a78;
+  --t4: #38384e;
+  --ac: #5b8af0;
+  --acd: #1a2a5a;
+  --am: #e8a048;
+  --gn: #45c47a;
+  --rd: #e05555;
+
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  max-width: 720px;
+  background: var(--art);
+  border-left: 1px solid var(--bd);
+  border-right: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+}
+
+.errorBody {
+  padding: 20px;
+}
+.errorTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 6px;
+}
+.errorText {
+  font-size: 13px;
+  color: var(--t3);
+  line-height: 1.5;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd2);
+  padding: 14px 20px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.tbT {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--t1);
+}
+.tbS {
+  font-size: 12px;
+  color: var(--t3);
+}
+
+/* ── Step progress bar ── */
+.stepsBar {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 24px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd2);
+}
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+.stepLine {
+  position: absolute;
+  top: 11px;
+  left: calc(50% + 13px);
+  right: calc(-50% + 13px);
+  border-top: 1px dashed var(--bd);
+}
+.sdot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px dashed var(--bd2);
+  background: var(--sur2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--t3);
+  z-index: 1;
+  position: relative;
+  font-weight: 600;
+}
+.sdotDone {
+  background: #0f2a1a;
+  border-color: var(--gn);
+  color: var(--gn);
+  border-style: solid;
+}
+.sdotOn {
+  background: var(--acd);
+  border-color: var(--ac);
+  color: var(--ac);
+  border-style: solid;
+}
+.slbl {
+  font-size: 10px;
+  color: var(--t4);
+  text-align: center;
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* ── Body ── */
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.sectionSub {
+  font-size: 13px;
+  color: var(--t3);
+  margin-bottom: 16px;
+}
+
+.doc {
+  height: 320px;
+  background: var(--sur);
+  border: 1px solid var(--bd);
+  border-radius: 3px;
+  padding: 18px 22px;
+  position: relative;
+  overflow-y: auto;
+}
+.docP {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+.docPCallout {
+  background: var(--sur2);
+  padding: 10px;
+  border-left: 3px solid var(--ac);
+  border-radius: 0 2px 2px 0;
+}
+.docPMuted {
+  color: var(--t3);
+}
+.sfade {
+  position: sticky;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 52px;
+  margin-top: -52px;
+  background: linear-gradient(to bottom, transparent, var(--sur));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  pointer-events: none;
+}
+.sfadeHint {
+  font-size: 11px;
+  color: var(--t4);
+}
+
+/* ── Actions row ── */
+.actionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--bd);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lockHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--t4);
+}
+.lockHint.unlocked {
+  color: var(--gn);
+}
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.infoBox {
+  padding: 9px 11px;
+  background: var(--sur2);
+  border: 1px dashed var(--bd);
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--t4);
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* ── Confirm step ── */
+.confirmSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.confirmRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--t2);
+}
+.confirmCheck {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0f2a1a;
+  color: var(--gn);
+  border: 1px solid var(--gn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.errorMsg {
+  font-size: 12px;
+  color: var(--rd);
+  background: rgba(224, 85, 85, 0.1);
+  border: 1px solid var(--rd);
+  border-radius: 3px;
+  padding: 7px 9px;
+  margin-bottom: 10px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+}
+.btnPrimary {
+  background: var(--acd);
+  border-color: var(--ac);
+  color: var(--ac);
+}
+.btnPrimary:hover {
+  background: var(--ac);
+  color: var(--art);
+}
+.btnSecondary {
+  background: transparent;
+  border: 1px dashed var(--bd2);
+  color: var(--t3);
+}
+.btnSecondary:hover {
+  border-color: var(--t3);
+  color: var(--t1);
+}
+.btnDanger {
+  background: #2a0f0f;
+  border-color: var(--rd);
+  color: var(--rd);
+}
+.btnDanger:hover {
+  background: var(--rd);
+  color: var(--art);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}

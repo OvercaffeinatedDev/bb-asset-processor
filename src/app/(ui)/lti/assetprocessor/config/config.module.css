@@ -1,0 +1,414 @@
+/*
+ * Ported from the "LTI Configuration Panel" wireframe (Screen 1 of 5)
+ * https://claude.ai/design/p/48f10ec3-edf6-4629-bd10-70a43b1b3a4b
+ * — Asset Processor · Blackboard LTI · Wireframes
+ */
+
+.panel {
+  --bg: #0d0d14;
+  --art: #15151f;
+  --sur: #1d1d28;
+  --sur2: #232332;
+  --bd: #2a2a3d;
+  --bd2: #38384e;
+  --t1: #e2e2f0;
+  --t2: #9a9ab8;
+  --t3: #5a5a78;
+  --t4: #38384e;
+  --ac: #5b8af0;
+  --acd: #1a2a5a;
+  --am: #e8a048;
+  --gn: #45c47a;
+  --rd: #e05555;
+
+  margin-top: 13px;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--t1);
+  font-family:
+    var(--font-dm-sans),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  max-width: 380px;
+  background: var(--art);
+  border-left: 1px solid var(--bd);
+  border-right: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd2);
+  padding: 10px 14px;
+  flex-shrink: 0;
+}
+.gearIcon {
+  font-size: 14px;
+  color: var(--t3);
+}
+.tbT {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--t1);
+}
+.tbS {
+  font-size: 12px;
+  color: var(--t3);
+}
+.closeBtn {
+  margin-left: auto;
+  font-size: 16px;
+  color: var(--t3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.closeBtn:hover {
+  color: var(--t1);
+}
+
+.body {
+  padding: 12px 14px 14px;
+}
+
+.errorTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 6px;
+}
+.errorText {
+  font-size: 13px;
+  color: var(--t3);
+  line-height: 1.5;
+}
+
+.saveError {
+  font-size: 12px;
+  color: var(--rd);
+  background: rgba(224, 85, 85, 0.1);
+  border: 1px solid var(--rd);
+  border-radius: 3px;
+  padding: 7px 9px;
+  margin-bottom: 10px;
+}
+
+/* ── Status bar ── */
+.statBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  background: var(--sur2);
+  border: 1px solid var(--bd);
+  border-radius: 3px;
+  margin-bottom: 11px;
+  font-size: 12px;
+}
+.statDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gn);
+  flex-shrink: 0;
+}
+.statText {
+  color: var(--t2);
+}
+.statMeta {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--t4);
+}
+
+/* ── Form elements ── */
+.lbl {
+  display: block;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 5px;
+}
+.field {
+  width: 100%;
+  height: 30px;
+  border: 1px dashed var(--bd2);
+  background: var(--sur);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 11px;
+  font-size: 13px;
+  gap: 6px;
+}
+.fieldValue {
+  color: var(--t2);
+}
+.fieldValueSm {
+  color: var(--t2);
+  font-size: 12px;
+}
+.fieldMasked {
+  letter-spacing: 3px;
+  color: var(--t3);
+  font-size: 11px;
+}
+.fieldIcon {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--t3);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.fieldIcon:hover {
+  color: var(--t1);
+}
+
+/* Real <input> filling a .field box */
+.fieldInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+  color: var(--t2);
+  font-family: inherit;
+  font-size: 13px;
+}
+.fieldInputSm {
+  font-size: 12px;
+}
+.fieldInputMasked {
+  letter-spacing: 3px;
+  color: var(--t3);
+  font-size: 11px;
+}
+.field:focus-within {
+  border-color: var(--ac);
+  border-style: solid;
+}
+
+.apiKeyRow {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.apiKeyField {
+  flex: 1;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 10px;
+}
+.dividerLine {
+  flex: 1;
+  border-top: 1px dashed var(--bd);
+}
+.dividerLabel {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--t4);
+  white-space: nowrap;
+}
+
+/* ── Checkbox / radio rows ── */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  color: var(--t2);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.row:hover {
+  color: var(--t1);
+}
+.rowInline {
+  margin: 0;
+}
+.chk {
+  width: 13px;
+  height: 13px;
+  border: 1px dashed var(--bd2);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+}
+.row:hover .chk,
+.row:hover .rad {
+  border-color: var(--t2);
+}
+.chkOn {
+  background: var(--acd);
+  border-color: var(--ac);
+  color: var(--ac);
+  border-style: solid;
+}
+.row:hover .chkOn,
+.row:hover .radOn {
+  border-color: var(--ac);
+}
+.rad {
+  width: 13px;
+  height: 13px;
+  border: 1px dashed var(--bd2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radOn {
+  border-color: var(--ac);
+  border-style: solid;
+}
+.radOn::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--ac);
+  border-radius: 50%;
+  display: block;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* ── Slider ── */
+.thresholdHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+.thresholdValue {
+  color: var(--am);
+  font-weight: 600;
+}
+/* Real <input type="range"> styled to match the wireframe's track/fill/thumb */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 3px;
+  margin: 4px 0 11px;
+  cursor: pointer;
+  background: var(--bd2);
+}
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 3px;
+  background: transparent;
+}
+.slider::-moz-range-track {
+  height: 4px;
+  border-radius: 3px;
+  background: transparent;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ac);
+  margin-top: -4px;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--ac);
+  cursor: pointer;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+  font-family: inherit;
+}
+.btnPrimary {
+  background: var(--acd);
+  border: 1px solid var(--ac);
+  color: var(--ac);
+  height: 32px;
+  margin-bottom: 6px;
+}
+.btnPrimary:hover {
+  background: var(--ac);
+  color: var(--art);
+}
+.btnSecondary {
+  background: transparent;
+  border: 1px dashed var(--bd2);
+  color: var(--t3);
+  height: 32px;
+}
+.btnSecondary:hover {
+  border-color: var(--t3);
+  color: var(--t1);
+}
+.btnSmall {
+  height: 30px;
+  font-size: 12px;
+  padding: 0 10px;
+  width: auto;
+  flex-shrink: 0;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

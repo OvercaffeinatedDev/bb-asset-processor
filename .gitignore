@@ -1,0 +1,51 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+!.env.sample
+
+# vercel
+.vercel
+
+# downloaded LTI asset submissions — real student/course file content, never
+# belongs in source control. The directory itself is created at runtime
+# (fs.mkdir recursive) by (api)/lti/launch/route.ts, so nothing here needs to
+# be tracked.
+/fileDownloads/*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+docker-data
+cftunnel

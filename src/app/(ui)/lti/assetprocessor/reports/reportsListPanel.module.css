@@ -1,0 +1,230 @@
+/*
+ * Ported from the "Reports List" wireframe (Screen 4 of 5)
+ * https://claude.ai/design/p/48f10ec3-edf6-4629-bd10-70a43b1b3a4b
+ * — Asset Processor · Blackboard LTI · Wireframes
+ */
+
+.panel {
+  --bg: #0d0d14;
+  --art: #15151f;
+  --sur: #1d1d28;
+  --sur2: #232332;
+  --bd: #2a2a3d;
+  --bd2: #38384e;
+  --t1: #e2e2f0;
+  --t2: #9a9ab8;
+  --t3: #5a5a78;
+  --t4: #38384e;
+  --ac: #5b8af0;
+  --acd: #1a2a5a;
+  --am: #e8a048;
+  --gn: #45c47a;
+  --rd: #e05555;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 24px;
+}
+
+.frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--art);
+  border: 1px solid var(--bd);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd2);
+  flex-wrap: wrap;
+}
+.title {
+  font-size: 16px;
+  font-weight: 700;
+}
+.subtitle {
+  font-size: 12px;
+  color: var(--t3);
+  margin-top: 2px;
+}
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.searchField {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px dashed var(--bd2);
+  border-radius: 3px;
+  background: var(--sur2);
+  min-width: 200px;
+}
+.searchIcon {
+  font-size: 12px;
+  color: var(--t4);
+}
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--t2);
+  font-size: 13px;
+  width: 100%;
+  font-family: inherit;
+}
+.searchInput::placeholder {
+  color: var(--t4);
+}
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px dashed var(--bd2);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--t3);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.iconBtn:hover {
+  border-color: var(--t3);
+  color: var(--t1);
+}
+
+/* ── Filter bar ── */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd);
+  flex-wrap: wrap;
+}
+.filterLabel {
+  font-size: 12px;
+  color: var(--t3);
+}
+.chip {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid var(--bd);
+  background: var(--sur2);
+  color: var(--t3);
+  cursor: pointer;
+  font-family: inherit;
+}
+.chip:hover {
+  border-color: var(--t3);
+  color: var(--t1);
+}
+.sortHint {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--t3);
+}
+.sortValue {
+  color: var(--t2);
+}
+
+/* ── Table ── */
+.tableWrap {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th {
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd);
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 10px;
+  font-family: var(--font-space-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--t3);
+  white-space: nowrap;
+  font-weight: 400;
+}
+.table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bd);
+  color: var(--t2);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.table tbody tr:hover td {
+  background: var(--sur2);
+}
+.studentCell {
+  color: var(--t1);
+  font-weight: 600;
+}
+.scoreCell {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.viewLink {
+  color: var(--ac);
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.viewLink:hover {
+  text-decoration: underline;
+}
+
+.emptyState {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--t4);
+  font-size: 13px;
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: var(--t4);
+  flex-wrap: wrap;
+  gap: 8px;
+}

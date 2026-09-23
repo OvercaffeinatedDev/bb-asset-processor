@@ -1,0 +1,355 @@
+/*
+ * Ported from the "Item Configuration" wireframe (Screen 2 of 5)
+ * https://claude.ai/design/p/48f10ec3-edf6-4629-bd10-70a43b1b3a4b
+ * — Asset Processor · Blackboard LTI · Wireframes
+ *
+ * Same design tokens/components as the initial config panel (../config) — this
+ * module duplicates rather than imports them since each route owns its own
+ * styling here, matching the existing project convention.
+ */
+
+.panel {
+  --bg: #0d0d14;
+  --art: #15151f;
+  --sur: #1d1d28;
+  --sur2: #232332;
+  --bd: #2a2a3d;
+  --bd2: #38384e;
+  --t1: #e2e2f0;
+  --t2: #9a9ab8;
+  --t3: #5a5a78;
+  --t4: #38384e;
+  --ac: #5b8af0;
+  --acd: #1a2a5a;
+  --am: #e8a048;
+  --gn: #45c47a;
+  --rd: #e05555;
+
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  max-width: 380px;
+  background: var(--art);
+  border-left: 1px solid var(--bd);
+  border-right: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--sur);
+  border-bottom: 1px solid var(--bd2);
+  padding: 10px 14px;
+  flex-shrink: 0;
+}
+.tbBreadcrumb {
+  font-size: 12px;
+  color: var(--t3);
+  margin-bottom: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tbT {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--t1);
+}
+.badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: #0f2a1a;
+  color: var(--gn);
+  border: 1px solid var(--gn);
+}
+
+/* ── Live status strip ── */
+.statusStrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--bd);
+}
+.statusCell {
+  padding: 10px 0;
+  text-align: center;
+  border-right: 1px solid var(--bd);
+}
+.statusCell:last-child {
+  border-right: none;
+}
+.statusValue {
+  font-size: 22px;
+  font-weight: 700;
+}
+.statusLabel {
+  font-size: 10px;
+  color: var(--t4);
+  font-family: var(--font-space-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.body {
+  padding: 12px 14px 14px;
+}
+
+.errorTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 6px;
+}
+.errorText {
+  font-size: 13px;
+  color: var(--t3);
+  line-height: 1.5;
+}
+.saveError {
+  font-size: 12px;
+  color: var(--rd);
+  background: rgba(224, 85, 85, 0.1);
+  border: 1px solid var(--rd);
+  border-radius: 3px;
+  padding: 7px 9px;
+  margin-bottom: 10px;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 10px;
+}
+.dividerLine {
+  flex: 1;
+  border-top: 1px dashed var(--bd);
+}
+.dividerLabel {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--t4);
+  white-space: nowrap;
+}
+
+/* ── Checkbox / radio rows ── */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  color: var(--t2);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.row:hover {
+  color: var(--t1);
+}
+.rowInline {
+  margin: 0;
+}
+.chk {
+  width: 13px;
+  height: 13px;
+  border: 1px dashed var(--bd2);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+}
+.row:hover .chk,
+.row:hover .rad {
+  border-color: var(--t2);
+}
+.chkOn {
+  background: var(--acd);
+  border-color: var(--ac);
+  color: var(--ac);
+  border-style: solid;
+}
+.row:hover .chkOn,
+.row:hover .radOn {
+  border-color: var(--ac);
+}
+.rad {
+  width: 13px;
+  height: 13px;
+  border: 1px dashed var(--bd2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radOn {
+  border-color: var(--ac);
+  border-style: solid;
+}
+.radOn::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--ac);
+  border-radius: 50%;
+  display: block;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+/* ── Slider ── */
+.thresholdHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+.thresholdValue {
+  color: var(--am);
+  font-weight: 600;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 3px;
+  margin: 4px 0 11px;
+  cursor: pointer;
+  background: var(--bd2);
+}
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 3px;
+  background: transparent;
+}
+.slider::-moz-range-track {
+  height: 4px;
+  border-radius: 3px;
+  background: transparent;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ac);
+  margin-top: -4px;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--ac);
+  cursor: pointer;
+}
+
+/* ── Recent activity ── */
+.activityList {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.activityRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--bd);
+  color: var(--t2);
+}
+.activityRow:last-child {
+  border-bottom: none;
+}
+.activityFlagged {
+  color: var(--rd);
+}
+.activityMeta {
+  color: var(--t4);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+  font-family: inherit;
+}
+.btnPrimary {
+  background: var(--acd);
+  border: 1px solid var(--ac);
+  color: var(--ac);
+  height: 32px;
+  margin-bottom: 6px;
+}
+.btnPrimary:hover {
+  background: var(--ac);
+  color: var(--art);
+}
+.btnSecondary {
+  background: transparent;
+  border: 1px dashed var(--bd2);
+  color: var(--t3);
+  height: 32px;
+}
+.btnSecondary:hover {
+  border-color: var(--t3);
+  color: var(--t1);
+}
+.btnLink {
+  background: transparent;
+  border: 1px dashed var(--ac);
+  color: var(--ac);
+  height: 26px;
+  font-size: 12px;
+  width: auto;
+  display: inline-flex;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.btnLink:hover {
+  background: var(--acd);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
